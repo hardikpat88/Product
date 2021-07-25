@@ -30,6 +30,38 @@ Docker services:
 Mysql: 
 docker run --name dev-mysql -p 3306:3306 -v /opt/storage/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
 
+product-service:
+docker build -t <USER_NAME>/product:1.2 .
+docker login -user <USER_NAME>
+docker push <USER_NAME>/product:1.2
+
+network communication:
+(1) docker network create product-mysql
+(2) docker run --network product-mysql --name dev-mysql -p 3306:3306 -v /opt/storage/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
+(3) docker run --network product-mysql --name product -p 8080:8080 <USER_NAME>/product:1.2
+
+
+
+
+===============================
+Pushing a Docker container image to Docker Hub
+To push an image to Docker Hub, you must first name your local image using your Docker Hub username and the repository name that you created through Docker Hub on the web.
+
+You can add multiple images to a repository by adding a specific :<tag> to them (for example docs/base:testing). If it’s not specified, the tag defaults to latest.
+
+Name your local images using one of these methods:
+
+When you build them, using 
+		docker build -t <hub-user>/<repo-name>[:<tag>]
+By re-tagging an existing local image 
+		docker tag <existing-image> <hub-user>/<repo-name>[:<tag>]
+By using 
+		docker commit <existing-container> <hub-user>/<repo-name>[:<tag>] to commit changes
+Now you can push this repository to the registry designated by its name or tag.
+
+ 		docker push <hub-user>/<repo-name>:<tag>
+The image is then uploaded and available for use.
+
 
 
 
