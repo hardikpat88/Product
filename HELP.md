@@ -62,6 +62,20 @@ Now you can push this repository to the registry designated by its name or tag.
  		docker push <hub-user>/<repo-name>:<tag>
 The image is then uploaded and available for use.
 
+================================
+
+kubectl apply -f mysqldb-credentials.yml
+kubectl apply -f mysqldb-root-credentials.yml
+kubectl apply -f mysql-configmap.yml
+kubectl apply -f mysql-deployment.yml
+kubectl apply -f product-deployment.yml
+
+
+Note: If you have used Node Port for service then u can access endpoint url from below command
+minikube service <Service_name> --url
+ ex. minikube service product-app --url
+
+
 
 
 
