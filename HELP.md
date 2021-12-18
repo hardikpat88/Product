@@ -20,14 +20,14 @@ The following guides illustrate how to use some features concretely:
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 * [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
 * [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
-* https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+* [Kubectl commands](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 ### Additional Links
 These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
-Docker services:
+### Docker services:
 Mysql: 
 docker run --name dev-mysql -p 3306:3306 -v /opt/storage/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
 
@@ -36,7 +36,7 @@ docker build -t <USER_NAME>/product:1.2 .
 docker login -user <USER_NAME>
 docker push <USER_NAME>/product:1.2
 
-network communication:
+### network communication:
 (1) docker network create product-mysql
 (2) docker run --network product-mysql --name dev-mysql -p 3306:3306 -v /opt/storage/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
 (3) docker run --network product-mysql --name product -p 8080:8080 <USER_NAME>/product:1.2
