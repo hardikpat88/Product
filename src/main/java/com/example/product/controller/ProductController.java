@@ -20,8 +20,9 @@ import com.example.product.repository.ProductRepository;
 @RequestMapping("/api/v1/product")
 public class ProductController {
 
-    @Autowired
-    private ProductRepository productRepository;
+	/** */
+    	@Autowired
+    	private ProductRepository productRepository;
 	
 	@PostMapping
 	public Product saveProduct(@RequestBody Product product) {
